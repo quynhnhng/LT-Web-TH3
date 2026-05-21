@@ -1,30 +1,26 @@
+import ProductCard from '../components/ProductCard'
+import { getProductsByCategory } from '../data/products'
+
 const AccessoryPage = () => {
+  const accessories = getProductsByCategory('accessory')
+
   return (
-    <section className="products">
-      <h2>🎧 Phụ kiện</h2>
+    <section className="products category-page">
+      <div className="section-head">
+        <div>
+          <p className="section-kicker">Âm thanh, gaming, tiện ích</p>
+          <h2>Phụ kiện chất lượng</h2>
+        </div>
+        <div className="filter-chips" aria-label="Bộ lọc nhanh">
+          <button type="button">Tai nghe</button>
+          <button type="button">Gaming</button>
+          <button type="button">Mua kèm giảm giá</button>
+        </div>
+      </div>
       <div className="product-list">
-
-        <div className="product">
-          <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/a/i/airpods-4-2.png" alt="Airpods 4"/>
-          <h3>AirPods 4</h3>
-          <p className="price">2.990.000</p>
-          <button>Mua</button>
-        </div>
-
-        <div className="product">
-          <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/o/sony-wh-1000xm6-5.jpg" alt="Sony  WH-1000XM6" />
-          <h3>Sony WH-1000XM6</h3>
-          <p className="price">9.990.000đ</p>
-          <button>Mua</button>
-        </div>
-
-        <div className="product">
-          <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/c/h/chuot-gaming-khong-day-logitech-pro-x-superlight-2c_1_.png" alt="Logitech Pro X Superlight 2C" />
-          <h3>Logitech Pro X Superlight 2C</h3>
-          <p className="price">3.190.000đ</p>
-          <button>Mua</button>
-        </div>
-
+        {accessories.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </section>
   )

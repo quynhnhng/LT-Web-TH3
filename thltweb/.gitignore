@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# ASP.NET Core / EF Core
+bin
+obj
+*.db
+*.db-shm
+*.db-wal
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
